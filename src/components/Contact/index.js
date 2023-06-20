@@ -1,5 +1,6 @@
 import Loader from 'react-loaders'
 import './index.scss'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import AnimatedLetters from '../AnimatedLetters'
 import { useEffect, useState } from 'react'
 import { useRef } from 'react'
@@ -90,6 +91,27 @@ const Contact = () => {
             </form>
           </div>
         </div>
+      </div>
+      <div className="info-map">
+        Jirayus Kardviset
+        <br />
+        <br />
+        Chiang Mai
+        <br />
+        61/20 Moo.4, Suthep Subdistrict
+        <br />
+        Maeang Chiang Mai District, 50200
+        <br />
+        <br />
+        <span>jirayus.kard@gmail.com</span>
+      </div>
+      <div className="map-warp">
+        <MapContainer center={[18.789714, 98.954919]} zoom={17}>
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker position={[18.789714, 98.954919]}>
+            <Popup>Jirayus lives here, come over for a cup or coffee :)</Popup>
+          </Marker>
+        </MapContainer>
       </div>
       <Loader type="pacman" />
     </>
